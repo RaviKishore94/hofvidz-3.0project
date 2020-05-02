@@ -15,8 +15,6 @@
     <h1 class="text-center">Recent Hall of Fames</h1>
     {% for hall in recent_halls %}
     <h3><a href="{% url 'detail-hall' hall.id %}">{{ hall.title }}</a></h3>
-    <a href="{% url 'update-hall' hall.id %}" class="btn btn-primary">Edit</a>
-    <a href="{% url 'add-video' hall.id %}" class="btn btn-primary">Add Video</a>
     <div class="row">
         {% for video in hall.video_set.all %}
         <div class="col-md-4 mt-3">
