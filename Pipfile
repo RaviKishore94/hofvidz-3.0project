@@ -7,6 +7,12 @@ verify_ssl = true
 
 [packages]
 requests = "*"
+django = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
+whitenoise = "*"
+django-widget-tweaks = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.8"
