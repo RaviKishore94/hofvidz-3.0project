@@ -79,7 +79,7 @@ class CreateHall(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        super(CreateHall, self).form_valid(form) #super() returns a view
+        super(CreateHall, self).form_valid(form)
         return redirect('dashboard')
 
 class DetailHall(DetailView):
