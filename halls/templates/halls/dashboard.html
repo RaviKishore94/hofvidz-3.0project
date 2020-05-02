@@ -1,0 +1,27 @@
+{% extends 'halls/base.html' %}
+
+{% block content %}
+<div class="text-center">
+    <h1>{{ user.username|title }}'s Hall of Fames</h1>
+    <a href="{% url 'create-hall' %}" class="btn btn-primary">Create Hall of Fame</a>
+</div>
+
+{% for hall in halls %}
+    <h3><a href="{% url 'detail-hall' hall.id %}">{{ hall.title }}</a></h3>
+    <a href="{% url 'update-hall' hall.id %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'add-video' hall.id %}" class="btn btn-primary">Add Video</a>
+    <div class="row">
+    {% for video in hall.video_set.all %}
+    <div class="col-md-4 mt-3">
+        <div class="card mb-4 shadow-sm">
+            <iframe width="100%" height="200" src="https://www.youtube.com/embed/{{ video.youtube_id }}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="card-body">
+                <p class="card-text">{{ video.title }}</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+{% endfor %}
+
+{% endblock %}

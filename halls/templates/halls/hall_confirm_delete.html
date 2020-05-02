@@ -1,0 +1,11 @@
+{% extends 'halls/base.html' %}
+
+{% block content %}
+<h2>Are you sure you want to delete the Hall of Fame?</h2>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+<br/>
+
+{% endblock %}
